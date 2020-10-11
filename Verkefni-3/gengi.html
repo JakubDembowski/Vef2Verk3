@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Gengi gjaldmiðla - json{% endblock %}
+{% block content %}
+    <h2>Gengi gjaldmiðla</h2>
+    <div class="wrapper">
+        <table>
+        {% for i in data['results'] %}
+            <tr>
+                <td>{{i.longName}}</td><td>{{i['shortName']}}, </td><td>gengi: ISKR:</td><b></b>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+<p>Upplýsingar af APIS.is</p>
+{% endblock %}

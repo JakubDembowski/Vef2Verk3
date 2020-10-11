@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Allar stöðvar fyrirtækis{% endblock %}
+{% block content %}
+<table>
+    <caption>Allar Bensínstöðvar fyrirtækisins</caption>
+    <tr>
+        <th>Fyrirtæki</th><th>Staður</th>
+    </tr>
+    <tr>
+    {% set cnt = [] %}
+    {% for item in gogn['results'] %}
+    <tr>
+        {% if item.company == com %}
+        {# % do cnt.append(item.company) % #}
+        <td>{{ item.company }}</td><td><a href="/moreinfo/{{ item.key }}"></a>{{ item.name}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<p> Fjöldi stöðva: {{cnt | length}}</p>
+{% endblock %}
